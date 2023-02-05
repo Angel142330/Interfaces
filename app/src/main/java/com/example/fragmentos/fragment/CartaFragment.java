@@ -79,7 +79,6 @@ public class CartaFragment extends Fragment {
             }
 
         });
-
         return view;
     }
 }
