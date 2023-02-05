@@ -1,5 +1,6 @@
 package com.example.fragmentos.fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class CartaFragment extends Fragment {
     private AdaptadorComidas adaptador;
     private List<Comida> comidas;
     FirebaseFirestore db;
+    private ProgressDialog progressDialog;
 
     public static Fragment newInstance() {
         CartaFragment fragment = new CartaFragment();
@@ -43,13 +45,17 @@ public class CartaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView_carta);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         db = FirebaseFirestore.getInstance();
         comidas = new ArrayList<>();
 
         CollectionReference comidasRef = db.collection("carta");
 
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Cargando datos...");
+        progressDialog.show();
         comidasRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -62,6 +68,7 @@ public class CartaFragment extends Fragment {
                 }
                 adaptador = new AdaptadorComidas(comidas);
                 recyclerView.setAdapter(adaptador);
+                progressDialog.dismiss();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

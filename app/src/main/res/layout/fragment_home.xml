@@ -6,10 +6,12 @@
     android:background="@color/white"
     tools:context=".fragment.CartaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_carta"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+
+        />
 
 </FrameLayout>
