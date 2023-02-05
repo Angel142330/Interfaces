@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/textColor"
     tools:context=".fragment.HomeFragment">
+
+
 
     <TextView
         android:id="@+id/textView_home"
@@ -16,12 +19,20 @@
         android:textSize="24dp"
         android:textStyle="bold" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:queryHint="Encuentra tu producto"
+        app:iconifiedByDefault="false"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        />
+        android:layout_marginTop="78dp" />
+
 
 </FrameLayout>
-

@@ -7,18 +7,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.fragmentos.R;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class
 AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder> {
     private List<Comida> comidas;
+    private List<Comida> comidas2;
 
     public AdaptadorComidas(List<Comida> comidas) {
         this.comidas = comidas;
+        comidas2=new ArrayList<>();
+        comidas2.addAll(comidas);
     }
 
     @Override
@@ -44,6 +49,7 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
         notifyDataSetChanged();
     }
 
+
     static class ComidaViewHolder extends RecyclerView.ViewHolder {
         TextView textNombre;
         ImageView imagenComida;
@@ -52,7 +58,7 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
             super(itemView);
             textNombre = itemView.findViewById(R.id.nombre);
 
-          imagenComida = itemView.findViewById(R.id.image_producto);
+            imagenComida = itemView.findViewById(R.id.image_producto);
         }
     }
 }

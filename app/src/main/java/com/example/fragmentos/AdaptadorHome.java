@@ -11,15 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class AdaptadorHome extends RecyclerView.Adapter<AdaptadorHome.OfertaViewHolder> {
 
-    private List<Ofertas_Home> oferta;
+    private List<Ofertas_Home> list_oferta;
+    ArrayList<Ofertas_Home> arrayLista_Oferta;
 
-    public AdaptadorHome(List<Ofertas_Home> oferta) {
-        this.oferta = oferta;
+
+    public AdaptadorHome(List<Ofertas_Home> list_oferta) {
+        this.list_oferta = list_oferta;
+        arrayLista_Oferta=new ArrayList<>();
+        arrayLista_Oferta.addAll(list_oferta);
+
     }
 
     @NonNull
@@ -33,21 +40,44 @@ public class AdaptadorHome extends RecyclerView.Adapter<AdaptadorHome.OfertaView
 
     @Override
     public void onBindViewHolder(@NonNull OfertaViewHolder holder, int position) {
-        Ofertas_Home ofer = oferta.get(position);
+        Ofertas_Home ofer = list_oferta.get(position);
         holder.nombre.setText(ofer.getNombre());
         holder.precio.setText(ofer.getPrecio());
         Glide.with(holder.itemView.getContext()).load(ofer.getImagen()).into(holder.imagen);
 
     }
 
+    public  void filtrado(final String txtBuscar) {
+        int longitud = txtBuscar.length();
+        if (longitud == 0) {
+            list_oferta.clear();
+            list_oferta.addAll(arrayLista_Oferta);
+        } else {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                List<Ofertas_Home> collecion = list_oferta.stream()
+                        .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase()))
+                        .collect(Collectors.toList());
+                list_oferta.clear();
+                list_oferta.addAll(collecion);
+            } else {
+                for (Ofertas_Home c : arrayLista_Oferta) {
+                    if (c.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())) {
+                        list_oferta.add(c);
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public int getItemCount() {
-        return oferta.size();
+        return list_oferta.size();
     }
 
     public void setResults(List<Ofertas_Home> ofertas) {
-        this.oferta.addAll(ofertas);
+        this.list_oferta.addAll(ofertas);
         notifyDataSetChanged();
     }
 

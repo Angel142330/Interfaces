@@ -1,6 +1,8 @@
 package com.example.fragmentos;
 
-public class Ofertas_Home {
+import java.io.Serializable;
+
+public class Ofertas_Home implements Serializable {
 
     private String nombre;
     private String precio;
