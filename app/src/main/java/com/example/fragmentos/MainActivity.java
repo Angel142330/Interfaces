@@ -49,27 +49,27 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (idMenu){
                     case R.id.menu_home:
-                        getSupportActionBar().setTitle("Home");
+                        //getSupportActionBar().setTitle("Home");
                         fragment= CartaFragment.newInstance();
                         openFragment(fragment);
                         return true;
                     case R.id.menu_dashboard:
-                        getSupportActionBar().setTitle("Dashboard");
+                        //getSupportActionBar().setTitle("Dashboard");
                         fragment= HomeFragment.newInstance();
                         openFragment(fragment);
                         return true;
                     case R.id.carrito:
-                        getSupportActionBar().setTitle("Carrito");
+                        //getSupportActionBar().setTitle("Carrito");
                         fragment= CarritoFragment.newInstance();
                         openFragment(fragment);
                         return true;
                     case R.id.person:
-                        getSupportActionBar().setTitle("perfil");
+                        //getSupportActionBar().setTitle("perfil");
                         fragment= CarritoFragment.newInstance();
                         openFragment(fragment);
                         return true;
                     case R.id.settings:
-                        getSupportActionBar().setTitle("ajustes");
+                        //getSupportActionBar().setTitle("ajustes");
                         fragment= CarritoFragment.newInstance();
                         openFragment(fragment);
                         return true;
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cargarPrimerFragment(){
-        getSupportActionBar().setTitle("Home");
+       // getSupportActionBar().setTitle("Home");
         fragment= HomeFragment.newInstance();
         openFragment(fragment);
     }

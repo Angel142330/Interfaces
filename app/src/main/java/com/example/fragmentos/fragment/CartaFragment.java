@@ -42,7 +42,7 @@ public class CartaFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_carta, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView_carta);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
