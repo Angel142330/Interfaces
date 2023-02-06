@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import android.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +31,7 @@ public class CartaFragment extends Fragment {
     private AdaptadorComidas adaptador;
     private List<Comida> comidas;
     FirebaseFirestore db;
+    private SearchView searchView;
     private ProgressDialog progressDialog;
 
     public static Fragment newInstance() {
@@ -43,6 +45,31 @@ public class CartaFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_carta, container, false);
+
+        //Search
+        searchView = view.findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String txtBuscar) {
+               adaptador.filtrado(txtBuscar);
+                return false;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
         recyclerView = view.findViewById(R.id.recyclerView_carta);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
