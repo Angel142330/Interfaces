@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -126,21 +127,18 @@ public class HomeFragment extends Fragment {
         arrayLista_oferta = new ArrayList<>();
         list_oferta = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclerView_home);
-        recyclerView.setLayoutManager(new
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-                LinearLayoutManager(getContext()));
+
 
         db = FirebaseFirestore.getInstance();
         CollectionReference comidasRef = db.collection("carta");
 
-        progressDialog = new
-
-                ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Cargando datos...");
         progressDialog.show();
-        comidasRef.get().
-
-                addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        comidasRef.get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {

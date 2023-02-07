@@ -7,43 +7,47 @@
     android:background="@color/textColor"
     tools:context=".fragment.HomeFragment">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:background="#FF9800">
 
         <!-- Vista pager -->
+
+        <!-- Recycler View -->
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:clipToPadding="false"
             android:paddingStart="0dp"
-            android:paddingEnd="0dp"
             android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:layout_weight="1" />
+            android:paddingEnd="0dp"
+            android:paddingBottom="0dp" />
 
-        <!-- Recycler View -->
         <TextView
             android:id="@+id/bienvenido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:text="Bienvenido Miguel"
+            android:textSize="25dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.8">
+            android:layout_weight="1.8"
+            android:gravity="center">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
+                android:layout_centerInParent="true"
+                tools:listitem="@layout/menu_principal" />
         </RelativeLayout>
 
     </LinearLayout>
