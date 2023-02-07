@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.person:
                         //getSupportActionBar().setTitle("perfil");
-                        fragment= PerfilFragment.newInstance();
+                        fragment= CarritoFragment.newInstance();
                         openFragment(fragment);
                         return true;
                     case R.id.settings:
                         //getSupportActionBar().setTitle("ajustes");
-                       // fragment= CarritoFragment.newInstance();
-                       // openFragment(fragment);
+                        fragment= PerfilFragment.newInstance();
+                        openFragment(fragment);
                         return true;
                 }
                 return false;

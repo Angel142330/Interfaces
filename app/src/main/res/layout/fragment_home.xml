@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#FF9800">
-
+        android:background="#CC4F29">
+        <!--F8E750-->
         <!-- Vista pager -->
 
         <!-- Recycler View -->
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                tools:listitem="@layout/menu_principal" />
+                tools:listitem="@layout/item_oferta" />
         </RelativeLayout>
 
     </LinearLayout>
