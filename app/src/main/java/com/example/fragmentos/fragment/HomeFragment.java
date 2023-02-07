@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +46,6 @@ public class HomeFragment extends Fragment {
     ArrayList<Ofertas_Home> arrayLista_oferta;
     FirebaseFirestore db;
     private ProgressDialog progressDialog;
-    private SearchView searchView;
     ViewPager viewPager;
     private int dotscount;
     private ImageView[] dots;
@@ -67,23 +65,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-
-        //searchView = view.findViewById(R.id.search_view);
-       /* searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String txtBuscar) {
-               adaptador.filtrado(txtBuscar);
-                return false;
-            }
-        });
-*/
-
 
         viewPager = view.findViewById(R.id.view_pager);
 
@@ -127,9 +108,9 @@ public class HomeFragment extends Fragment {
         arrayLista_oferta = new ArrayList<>();
         list_oferta = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclerView_home);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new
 
-
+                LinearLayoutManager(getContext()));
 
         db = FirebaseFirestore.getInstance();
         CollectionReference comidasRef = db.collection("carta");
@@ -137,30 +118,29 @@ public class HomeFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Cargando datos...");
         progressDialog.show();
-        comidasRef.get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                            Ofertas_Home oferta = new Ofertas_Home();
-                            oferta.setNombre(document.get("Plato").toString());
-                            oferta.setImagen(document.get("Imagen").toString());
+        comidasRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                    Ofertas_Home oferta = new Ofertas_Home();
+                    oferta.setNombre(document.get("Plato").toString());
+                    oferta.setImagen(document.get("Imagen").toString());
 
-                            list_oferta.add(oferta);
-                        }
-                        adaptador = new AdaptadorHome(list_oferta);
-                        recyclerView.setAdapter(adaptador);
-                        progressDialog.dismiss();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception error) {
-                        if (error != null) {
-                            Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                    list_oferta.add(oferta);
+                }
+                adaptador = new AdaptadorHome(list_oferta);
+                recyclerView.setAdapter(adaptador);
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception error) {
+                if (error != null) {
+                    Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
 
-                });
+        });
 
         return view;
     }
@@ -185,15 +165,4 @@ public class HomeFragment extends Fragment {
             }
         }
     }
-
-    /*if (getActivity() != null) {
-    getActivity().runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            // aquí el código que deseas ejecutar en el hilo de la interfaz de usuario
-        }
-    });
-}
-*/
-
 }
