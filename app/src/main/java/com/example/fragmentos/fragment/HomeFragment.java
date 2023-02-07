@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
 
 
         //searchView = view.findViewById(R.id.search_view);
-       /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+       /* searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -80,8 +80,8 @@ public class HomeFragment extends Fragment {
                adaptador.filtrado(txtBuscar);
                 return false;
             }
-        });*/
-
+        });
+*/
 
 
         viewPager = view.findViewById(R.id.view_pager);
@@ -133,10 +133,14 @@ public class HomeFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         CollectionReference comidasRef = db.collection("carta");
 
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new
+
+                ProgressDialog(getContext());
         progressDialog.setMessage("Cargando datos...");
         progressDialog.show();
-        comidasRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        comidasRef.get().
+
+                addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
