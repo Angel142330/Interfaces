@@ -56,30 +56,10 @@ public class CartaFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String txtBuscar) {
-               adaptador.filtrado(txtBuscar);
+                adaptador.filtrado(txtBuscar);
                 return false;
             }
         });
-
-
-        adaptador.setOnItemClickListener(new AdaptadorComidas.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Comida comida = comidas.get(position);
-                // Ir al fragmento del carrito y agregar el alimento seleccionado
-                CarritoFragment carrito = new CarritoFragment();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("seleccion", comida);
-                carrito.setArguments(bundle);
-                getParentFragmentManager().beginTransaction().replace(R.id.frameContainer, carrito).commit();
-            }
-        });
-
-
-
-
-
-
 
 
         recyclerView = view.findViewById(R.id.recyclerView_carta);
