@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fragmentos.CarritoAdapter;
 import com.example.fragmentos.Ofertas_Home;
 import com.example.fragmentos.R;
 
@@ -21,6 +22,16 @@ public class
 AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder> {
     private List<Comida> comidas;
     private List<Comida> comidas2;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public AdaptadorComidas(List<Comida> comidas) {
         this.comidas = comidas;
@@ -39,6 +50,18 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
         Comida comida = comidas.get(position);
         holder.textNombre.setText(comida.getNombre());
         Glide.with(holder.itemView.getContext()).load(comida.getImagen()).into(holder.imagenComida);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(position);
+                    }
+                }
+            }
+        });
     }
 
     @Override

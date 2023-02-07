@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.example.fragmentos.fragment.HomeFragment;
 import com.example.fragmentos.fragment.CartaFragment;
 import com.example.fragmentos.fragment.CarritoFragment;
+import com.example.fragmentos.fragment.PerfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.person:
                         //getSupportActionBar().setTitle("perfil");
-                        fragment= CarritoFragment.newInstance();
+                        fragment= PerfilFragment.newInstance();
                         openFragment(fragment);
                         return true;
                     case R.id.settings:
                         //getSupportActionBar().setTitle("ajustes");
-                        fragment= CarritoFragment.newInstance();
-                        openFragment(fragment);
+                       // fragment= CarritoFragment.newInstance();
+                       // openFragment(fragment);
                         return true;
                 }
                 return false;
