@@ -33,7 +33,7 @@ public class AdaptadorHome extends RecyclerView.Adapter<AdaptadorHome.OfertaView
     @Override
     public OfertaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vista = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.menu_principal, parent, false);
+                .inflate(R.layout.item_oferta, parent, false);
 
         return new OfertaViewHolder(vista);
     }

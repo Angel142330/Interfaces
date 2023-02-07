@@ -3,14 +3,18 @@
 
     <item>
         <shape>
+            <corners android:radius="30dp" />
             <gradient
                 android:startColor="#FF9800"
                 android:centerColor="#FFC107"
-                android:endColor="#B64F3D"
+                android:endColor="#FF9800"
                 android:centerX="0.2"
                 android:centerY="0.2"/>
         </shape>
     </item>
 
+    <!--  android:startColor="#FF9800"
+                android:centerColor="#FFC107"
+                android:endColor="#B64F3D"-->
 
 </selector>
