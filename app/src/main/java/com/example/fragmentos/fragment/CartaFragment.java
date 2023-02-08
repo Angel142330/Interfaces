@@ -101,6 +101,7 @@ public class CartaFragment extends Fragment {
                         ArrayList<Comida> listaCarrito = viewModel.listaCarrito.getValue();
                         listaCarrito.add(comida);
                         viewModel.listaCarrito.setValue(listaCarrito);
+                        Toast.makeText(getContext(), comida.getNombre()+" se ha añadido al carrito", Toast.LENGTH_SHORT).show();
                     }
                 });
                 recyclerView.setAdapter(adaptador);
