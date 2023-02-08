@@ -1,6 +1,9 @@
 package com.example.fragmentos.fragment;
 
+
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Comida implements Serializable {
     private String nombre;
@@ -32,6 +35,7 @@ public class Comida implements Serializable {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
 
 
 }
