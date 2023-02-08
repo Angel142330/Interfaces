@@ -32,7 +32,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
-    
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Comida comida = comidas.get(position);
