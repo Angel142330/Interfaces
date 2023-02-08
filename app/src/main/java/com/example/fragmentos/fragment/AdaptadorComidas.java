@@ -1,11 +1,17 @@
 package com.example.fragmentos.fragment;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,11 +27,20 @@ public class
 AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder> {
     private List<Comida> comidas;
     private List<Comida> comidas2;
+    private Context context;
+    public interface OnItemClickListener {
+        void onItemClick(Comida comida);
+    }
 
-    public AdaptadorComidas(List<Comida> comidas) {
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public AdaptadorComidas(List<Comida> comidas, Context context) {
         this.comidas = comidas;
-        comidas2=new ArrayList<>();
-        comidas2.addAll(comidas);
+        this.context = context;
     }
 
     @Override
@@ -39,7 +54,20 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
         Comida comida = comidas.get(position);
         holder.textNombre.setText(comida.getNombre());
         Glide.with(holder.itemView.getContext()).load(comida.getImagen()).into(holder.imagenComida);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(comida);
+                    }
+                }
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
@@ -51,7 +79,7 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
         notifyDataSetChanged();
     }
 
-    public  void filtrado(final String txtBuscar) {
+    public void filtrado(final String txtBuscar) {
         int longitud = txtBuscar.length();
         if (longitud == 0) {
             comidas.clear();
@@ -74,15 +102,15 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
         notifyDataSetChanged();
     }
 
-    static class ComidaViewHolder extends RecyclerView.ViewHolder {
-        TextView textNombre;
-        ImageView imagenComida;
+static class ComidaViewHolder extends RecyclerView.ViewHolder {
+    TextView textNombre;
+    ImageView imagenComida;
 
-        public ComidaViewHolder(View itemView) {
-            super(itemView);
-            textNombre = itemView.findViewById(R.id.nombre);
+    public ComidaViewHolder(View itemView) {
+        super(itemView);
+        textNombre = itemView.findViewById(R.id.nombre);
 
-            imagenComida = itemView.findViewById(R.id.image_producto);
-        }
+        imagenComida = itemView.findViewById(R.id.image_producto);
     }
+}
 }
