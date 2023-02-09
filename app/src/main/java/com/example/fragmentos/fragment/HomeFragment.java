@@ -2,6 +2,7 @@ package com.example.fragmentos.fragment;
 
 
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -63,6 +64,8 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        setStatusBarColor();
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -162,6 +165,16 @@ public class HomeFragment extends Fragment {
                         viewPager.setCurrentItem(currentPage);
                     }
                 });
+            }
+        }
+    }
+
+    private void setStatusBarColor(){
+        if(getActivity()!=null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.principal, this.getActivity().getTheme()));
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.principal, this.getActivity().getTheme()));
             }
         }
     }

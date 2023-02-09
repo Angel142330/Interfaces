@@ -11,5 +11,8 @@
     <color name="negro">#050505</color>
     <color name="pinkColor">#FF003B</color>
     <color name="amarillo">#FFF300</color>
+    <color name="gift">#fcf0e2</color>
+    <color name="carta">#F1B06C</color>
+    <color name="principal">#CC4F29</color>
     <color name="transparentColor">#00FFFFFF</color>
 </resources>

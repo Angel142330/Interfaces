@@ -3,6 +3,7 @@ package com.example.fragmentos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -58,6 +59,11 @@ public class Gif extends AppCompatActivity {
             }
         }, 8000);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().setStatusBarColor(getResources().getColor(R.color.gift, this.getTheme()));
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(getResources().getColor(R.color.gift, this.getTheme()));
+        }
 
     }
 }

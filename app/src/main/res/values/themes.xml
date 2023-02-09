@@ -11,6 +11,6 @@
         <item name="colorOnSecondary">#FF9800</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#CC4F29</item>
-        <!-- Customize your theme here. -->
+
     </style>
 </resources>

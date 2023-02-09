@@ -26,7 +26,7 @@ public class SharedViewModel extends ViewModel {
         for (Comida c : lista) {
             total += Double.valueOf(c.getPrecio());
         }
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#,##");
         String precioFormateado = df.format(total);
         precioTotal.setValue(Double.parseDouble(precioFormateado));
     }
