@@ -1,33 +1,27 @@
 package com.example.fragmentos.fragment;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.fragmentos.Ofertas_Home;
 import com.example.fragmentos.R;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class
-AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder> {
+public class AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder> {
     private List<Comida> comidas;
     private List<Comida> comidas2;
     private Context context;
+
+
     public interface OnItemClickListener {
         void onItemClick(Comida comida);
     }
@@ -62,6 +56,7 @@ AdaptadorComidas extends RecyclerView.Adapter<AdaptadorComidas.ComidaViewHolder>
                     int position = holder.getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(comida);
+
                     }
                 }
             }

@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fragmentos.AdaptadorCarrito;
 import com.example.fragmentos.MainActivity;
 import com.example.fragmentos.R;
 import com.example.fragmentos.SharedViewModel;
@@ -35,6 +36,8 @@ public class CartaFragment extends Fragment {
     private ArrayList<Comida> comidas;
     private RecyclerView recyclerView;
     private AdaptadorComidas adaptador;
+
+    private AdaptadorCarrito adaptador_carrito;
     private SearchView searchView;
     private FirebaseFirestore db;
     private ProgressDialog progressDialog;
@@ -87,6 +90,7 @@ public class CartaFragment extends Fragment {
                     Comida comida = new Comida();
                     comida.setNombre(document.get("Plato").toString());
                     comida.setImagen(document.get("Imagen").toString());
+                    comida.setPrecio(document.get("Precio").toString());
                     comidas.add(comida);
                 }
 

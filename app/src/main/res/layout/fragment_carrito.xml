@@ -3,15 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="#044477"
     tools:context=".fragment.CarritoFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_carrito"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_marginTop="50dp"
         />
+
+    <TextView
+        android:id="@+id/textView_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: $0.00"
+        android:textSize="30dp"
+        android:layout_gravity="bottom"
+        android:gravity="right"/>
 
 
 
