@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Fragmentos"
         tools:targetApi="31">
         <activity
+            android:name=".ListaProductos.ListaProducto"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
