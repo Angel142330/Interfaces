@@ -128,6 +128,8 @@ public class HomeFragment extends Fragment {
                     Ofertas_Home oferta = new Ofertas_Home();
                     oferta.setNombre(document.get("Plato").toString());
                     oferta.setImagen(document.get("Imagen").toString());
+                    oferta.setPrecio(document.get("Precio").toString());
+
 
                     list_oferta.add(oferta);
                 }

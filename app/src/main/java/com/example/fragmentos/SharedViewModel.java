@@ -31,7 +31,6 @@ public class SharedViewModel extends ViewModel {
         precioTotal.setValue(Double.parseDouble(precioFormateado));
     }
 
-
     public void addComida(Comida comida) {
         lista.add(comida);
         precioTotal.setValue(Double.valueOf(precioTotal.getValue() + comida.getPrecio()));
