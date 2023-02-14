@@ -10,12 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fragmentos"
         tools:targetApi="31">
-        <activity
-            android:name=".ValorarFragment"
-            android:exported="false" />
-        <activity
+       <!-- <activity
             android:name=".ListaProductos.ListaProducto"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
             android:name=".Login"
             android:exported="false" />

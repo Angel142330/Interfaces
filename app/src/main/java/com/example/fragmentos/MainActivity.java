@@ -51,27 +51,27 @@ public class MainActivity extends AppCompatActivity {
             int idMenu= item.getItemId();
 
             switch (idMenu){
-                case R.id.menu_home:
+                case R.id.carta:
                     //getSupportActionBar().setTitle("Home");
                     fragment= CartaFragment.newInstance();
                     openFragment(fragment);
                     return true;
-                case R.id.menu_dashboard:
+                case R.id.ofertas:
                     //getSupportActionBar().setTitle("Dashboard");
                     fragment= HomeFragment.newInstance();
                     openFragment(fragment);
                     return true;
-                case R.id.carrito:
+                case R.id.compra:
                     //getSupportActionBar().setTitle("Carrito");
                     fragment= CarritoFragment.newInstance();
                     openFragment(fragment);
                     return true;
-                case R.id.person:
+                case R.id.valoracion:
                     //getSupportActionBar().setTitle("perfil");
                     fragment= ValorarFragment.newInstance();
                     openFragment(fragment);
                     return true;
-                case R.id.settings:
+                case R.id.configuracion:
                     //getSupportActionBar().setTitle("ajustes");
                     fragment= PerfilFragment.newInstance();
                     openFragment(fragment);
