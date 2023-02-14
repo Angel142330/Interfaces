@@ -3,26 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#044477"
+    android:background="#CC4F29"
     tools:context=".fragment.CarritoFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_carrito"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="50dp"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView_total"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Total: $0.00"
-        android:textSize="30dp"
-        android:layout_gravity="bottom"
-        android:gravity="right"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_carrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"/>
 
+        <TextView
+            android:id="@+id/textView_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F1B06C"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Total: $0.00"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
 </FrameLayout>

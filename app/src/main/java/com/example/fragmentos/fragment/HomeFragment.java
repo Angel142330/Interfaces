@@ -108,12 +108,10 @@ public class HomeFragment extends Fragment {
         timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
 
 
-        arrayLista_oferta = new ArrayList<>();
+        //arrayLista_oferta = new ArrayList<>();
         list_oferta = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclerView_home);
-        recyclerView.setLayoutManager(new
-
-                LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         db = FirebaseFirestore.getInstance();
         CollectionReference comidasRef = db.collection("carta");

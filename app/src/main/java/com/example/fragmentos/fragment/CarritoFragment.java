@@ -1,5 +1,6 @@
 package com.example.fragmentos.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -50,7 +51,7 @@ public class CarritoFragment extends Fragment {
         carritoAdapter = new AdaptadorCarrito(listaCarrito, getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(carritoAdapter);
-
+        setStatusBarColor();
         viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
         carritoAdapter.setOnItemClickListener(new AdaptadorCarrito.OnItemClickListener() {
@@ -76,5 +77,14 @@ public class CarritoFragment extends Fragment {
         });
 
         return view;
+    }
+    private void setStatusBarColor(){
+        if(getActivity()!=null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.principal, this.getActivity().getTheme()));
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.principal, this.getActivity().getTheme()));
+            }
+        }
     }
 }

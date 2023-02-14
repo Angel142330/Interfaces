@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.example.fragmentos.fragment.HomeFragment;
 import com.example.fragmentos.fragment.CartaFragment;
 import com.example.fragmentos.fragment.CarritoFragment;
+import com.example.fragmentos.fragment.PerfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -71,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.settings:
                     //getSupportActionBar().setTitle("ajustes");
-                    //fragment= PerfilFragment.newInstance();
-                   // openFragment(fragment);
+                    fragment= PerfilFragment.newInstance();
+                    openFragment(fragment);
                     return true;
             }
             return false;
