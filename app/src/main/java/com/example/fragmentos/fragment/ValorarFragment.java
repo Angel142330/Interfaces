@@ -117,7 +117,7 @@ public class ValorarFragment extends Fragment implements OnMapReadyCallback{
         // Coloca marcadores en el mapa
         // Por ejemplo:
         LatLng sydney = new LatLng(40.3807095, -3.7536673);
-        mGoogleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mGoogleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Madrid"));
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 

@@ -25,8 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
@@ -104,7 +104,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Email or User Name"
+                    android:hint="Nombre de usuario"
                     android:textColorHint="@color/negro"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
@@ -129,7 +129,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Password"
+                    android:hint="Contraseña"
                     android:textColorHint="@color/negro"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
@@ -152,11 +152,28 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Forget Password?"
+                    android:text="¿Has olvidado tu contraseña?"
                     android:textAlignment="textEnd"
                     android:textColor="#616161"
                     android:textSize="11sp"
                     android:textStyle="normal" />
+
+                <Button
+                    android:id="@+id/singIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginEnd="14dp"
+                    android:elevation="15dp"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/negro"
+                    android:textSize="17sp"
+                    android:textStyle="bold|italic"
+                    app:backgroundTint="@color/amarillo"
+                    app:shapeAppearanceOverlay="@style/boton2" />
             </LinearLayout>
 
             <LinearLayout
@@ -177,7 +194,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Email or User Name"
+                    android:hint="Nombre de usurario"
                     android:textColorHint="@color/negro"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
@@ -202,7 +219,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Password"
+                    android:hint="Contraseña"
                     android:textColorHint="@color/negro"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
@@ -229,7 +246,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Confirm Password"
+                    android:hint="Confirma contraseña"
                     android:textColorHint="@color/negro"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
@@ -249,24 +266,25 @@
                         android:textStyle="normal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <Button
+                    android:id="@+id/crearCuenta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:elevation="15dp"
+                    android:gravity="center"
+                    android:text="Crear cuenta"
+                    android:textAllCaps="false"
+                    android:textColor="@color/negro"
+                    android:textSize="17sp"
+                    android:textStyle="bold|italic"
+                    app:backgroundTint="@color/amarillo"
+                    app:shapeAppearanceOverlay="@style/boton2" />
+
             </LinearLayout>
 
-            <Button
-                android:id="@+id/singIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:elevation="15dp"
-                android:gravity="center"
-                android:text="@string/login"
-                android:textAllCaps="false"
-                android:textColor="@color/negro"
-                android:textSize="17sp"
-                android:textStyle="bold|italic"
-                app:backgroundTint="@color/amarillo"
-                app:shapeAppearanceOverlay="@style/boton2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
